@@ -1,0 +1,59 @@
+<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+	<div class="container">
+		<ul class="nav navbar-nav">
+			<li class="active">
+				<a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+			</li>
+			
+			<% if (typeof user != 'undefined' && typeof user.username != 'undefined') { %>
+				<li class="">
+				<% if (user.teamAbbr != null) { %>
+					<a href="/"><span class=""></span> <%= user.teamAbbr %></a>
+				<% } else { %>
+					<a href="/user/teams/available"><span class="glyphicon glyphicon-open"></span> Request Team</a>
+				<% } %>
+				</li>
+			<% }%>
+			
+			<!--<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-info-sign"></span> Getting Started Guides <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="https://devcenter.heroku.com/articles/getting-started-with-ruby">Getting Started with Ruby on Heroku</a></li>
+						<li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
+						<li><a href="https://devcenter.heroku.com/articles/getting-started-with-php">Getting Started with PHP on Heroku</a></li>
+						<li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started with Python on Heroku</a></li>
+						<li><a href="https://devcenter.heroku.com/articles/getting-started-with-java">Getting Started with Java on Heroku</a></li>
+						<li><a href="https://devcenter.heroku.com/articles/getting-started-with-go">Getting Started with Go on Heroku</a></li>
+						<li><a href="https://devcenter.heroku.com/articles/getting-started-with-clojure">Getting Started with Clojure on Heroku</a></li>
+						<li><a href="https://devcenter.heroku.com/articles/getting-started-with-scala">Getting Started with Scala on Heroku</a></li>
+						<li class="divider"></li>
+						<li><a href="https://devcenter.heroku.com/articles/getting-started-with-heroku-and-connect-without-local-dev">Getting Started on Heroku with Heroku Connect</a></li>
+						<li><a href="https://devcenter.heroku.com/articles/getting-started-with-jruby">Getting Started with Ruby on Heroku (Microsoft Windows)</a></li>
+					</ul>
+			</li>-->
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="navbar-right">
+			<% if (typeof username != 'undefined'){ %>
+				<a style="display: inline-block;"  href="/profile"><span class="glyphicon glyphicon-user"></span> <%= username %></a>
+				/
+				<a style="display: inline-block;"  href="/logout"><span class="fas fa-sign-out-alt"></span> log out</a>
+				
+				<% if (roleID == 1){ %>
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-info-sign"></span> Administration <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="/admin/teams/all">All Teams</a></li>
+							<li class="divider"></li>
+							<li><a href="/admin/teams/assign">Assign Team</a></li>
+						</ul>
+					</li>
+				<% }%>
+
+			<% }else{ %>
+				<a href="/signup" style="display: inline-block;"><span class="fas fa-user-plus"></span> Sign up</a> / <a style="display: inline-block;" href="/login"><span class="fas fa-sign-in-alt"></span> Login</a>
+			<% } %>
+			</li>
+		</ul>
+	</div>
+</nav>
