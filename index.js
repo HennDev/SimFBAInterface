@@ -122,7 +122,7 @@ passport.use(new LocalStrategy(
 		//Check if username and password exist
 		
 		var queryText  = "SELECT * FROM Users ";
-				queryText += "left join Roles on Roles.Role_ID = Users.User_ID ";
+				queryText += "left join Roles on Roles.Role_ID = Users.Role ";
 				queryText += "left join Team_Users_Link tul on tul.User_ID = Users.User_ID ";
 				queryText += "left join Teams tms on tms.Team_ID = tul.Team_ID ";
 				queryText += "where Username = '"+username+"' ";
