@@ -1,22 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<% include ../partials/header.ejs %>
-</head>
-<body>
-	<% include ../partials/nav.ejs %>
-<div class="container">
-	<div class="row">
-		<div class="col-md-3">
-		</div>
-		<div class="col-md-6">
-			<div class="page-header">
-				<h1>Welcome to your profile, <%= username %>!</h1>
-			</div>
-		</div>
-		<div class="col-md-3">
-		</div>
-	</div>
-</div>
-</body>
+  <head>
+    <% include ../partials/header.ejs %>
+  </head>
+  <body>
+    <% include ../partials/nav.ejs %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="page-header">
+            <h1>Welcome to your profile, <%= username %>!</h1>
+          </div>
+          <div class="user-actions">
+            <div class="request-team">
+              <% if(!user.school) {
+              <h4>
+                Request a team now!
+              </h4>
+              <button onclick="">Request Team</button> }%>
+            </div>
+            <% if(user.school){
+            <div class="user-recruiting">
+              <h4>Recruiting Board</h4>
+              <button onclick="">Recruiting Board</button>
+            </div>
+            <div class="user-roster">
+              <h4>User Roster</h4>
+              <button onclick="">Roster</button>
+            </div>
+            <div class="team-homepage">
+              <h4>Team Homepage</h4>
+              <button onclick=""><%= user.school%></button>
+            </div>
+            <div class="schedule-games">
+              <h4>Schedule Games</h4>
+              <button onclick="">Coming Soon!</button>
+            </div>
+            }%>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div id="schoolInfo">
+            <!--Insert Image here-->
+            <img href="<%= user.avatar%>" />
+            <% if(user.school){
+            <h3><%= user.school%></h3>
+            }%>
+          </div>
+          <div id="userRecords">
+            <div id="recordOverall">
+              <p><strong>Win-Loss Record Overall</strong></p>
+              <p><%= user.wins%> <%= user.losses%></p>
+            </div>
+            <div id="currentRecord">
+              <p><strong><%= user.school%> Win-Loss Record</strong></p>
+              <p><%= user.wins%> <%= user.losses%></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
