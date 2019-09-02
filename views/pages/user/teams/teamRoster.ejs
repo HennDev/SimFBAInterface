@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/header.ejs %>
+  </head>
+  <body>
+    <% include ../partials/nav.ejs %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="page-header">
+            <h1><%= user.school %></h1>
+            <h2>Team Roster</h2>
+          </div>
+          <div class="team-table">
+            <!-- INSERT THE TABLE HERE -->
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="team-info">
+            <!--Insert Image here-->
+            <img href="<%= user.avatar%>" />
+            <h3><%= user.school%></h3>
+            <h3><%= user.mascot%></h3>
+            <h4>Season: <%= season%></h4>
+            <div class="team-players">
+              <h4>Roster Size: <%= user.team.length %></h4>
+              <h4>Redshirts: <%= user.redshirts.length %></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
